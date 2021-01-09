@@ -1,0 +1,7 @@
+{
+  "name": "thumbs-down-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
