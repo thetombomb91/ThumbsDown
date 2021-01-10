@@ -52,7 +52,7 @@ function addNewLicensePlateToDatabase(event, callback) {
         TableName: ThumbsDownTableName,
         Item: {
             'licensePlate': { S: event.licensePlate },
-            'state': { S: event.licensePlate },
+            'state': { S: event.state },
             'thumbsDownCount': { N: '1' }
         }
     }, function (err, data) {
