@@ -8,9 +8,5 @@ import { LicensePlateService } from '../services/license-plate/license-plate.ser
 })
 export class Tab1Page {
 
-  constructor(private licensePlateService: LicensePlateService) {}
-
-  submitClicked() {
-    this.licensePlateService.someFunction();
-  }
+  constructor() {}
 }

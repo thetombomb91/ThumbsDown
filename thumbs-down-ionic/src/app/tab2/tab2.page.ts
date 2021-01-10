@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LicensePlateService } from '../services/license-plate/license-plate.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(private licensePlateService: LicensePlateService) {}
 
+  submitClicked() {
+    this.licensePlateService.someFunction();
+  }
 }
