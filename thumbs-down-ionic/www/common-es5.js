@@ -5,15 +5,15 @@
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
   function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
   function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"], {
     /***/
-    "./node_modules/@ionic/core/dist/esm/button-active-a6787d69.js":
+    "0/6H":
     /*!*********************************************************************!*\
       !*** ./node_modules/@ionic/core/dist/esm/button-active-a6787d69.js ***!
       \*********************************************************************/
@@ -21,7 +21,7 @@
     /*! exports provided: c */
 
     /***/
-    function node_modulesIonicCoreDistEsmButtonActiveA6787d69Js(module, __webpack_exports__, __webpack_require__) {
+    function H(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -36,19 +36,19 @@
 
       var _index_e806d1f6_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! ./index-e806d1f6.js */
-      "./node_modules/@ionic/core/dist/esm/index-e806d1f6.js");
+      "A36C");
       /* harmony import */
 
 
       var _index_f49d994d_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! ./index-f49d994d.js */
-      "./node_modules/@ionic/core/dist/esm/index-f49d994d.js");
+      "iWo5");
       /* harmony import */
 
 
       var _haptic_27b3f981_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./haptic-27b3f981.js */
-      "./node_modules/@ionic/core/dist/esm/haptic-27b3f981.js");
+      "qULd");
 
       var createButtonActiveGesture = function createButtonActiveGesture(el, isButton) {
         var currentTouchedButton;
@@ -135,7 +135,202 @@
     },
 
     /***/
-    "./node_modules/@ionic/core/dist/esm/framework-delegate-4584ab5a.js":
+    "74mu":
+    /*!*************************************************************!*\
+      !*** ./node_modules/@ionic/core/dist/esm/theme-ff3fc52f.js ***!
+      \*************************************************************/
+
+    /*! exports provided: c, g, h, o */
+
+    /***/
+    function mu(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "c", function () {
+        return createColorClasses;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "g", function () {
+        return getClassMap;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "h", function () {
+        return hostContext;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "o", function () {
+        return openURL;
+      });
+
+      var hostContext = function hostContext(selector, el) {
+        return el.closest(selector) !== null;
+      };
+      /**
+       * Create the mode and color classes for the component based on the classes passed in
+       */
+
+
+      var createColorClasses = function createColorClasses(color, cssClassMap) {
+        return typeof color === 'string' && color.length > 0 ? Object.assign(_defineProperty({
+          'ion-color': true
+        }, "ion-color-".concat(color), true), cssClassMap) : cssClassMap;
+      };
+
+      var getClassList = function getClassList(classes) {
+        if (classes !== undefined) {
+          var array = Array.isArray(classes) ? classes : classes.split(' ');
+          return array.filter(function (c) {
+            return c != null;
+          }).map(function (c) {
+            return c.trim();
+          }).filter(function (c) {
+            return c !== '';
+          });
+        }
+
+        return [];
+      };
+
+      var getClassMap = function getClassMap(classes) {
+        var map = {};
+        getClassList(classes).forEach(function (c) {
+          return map[c] = true;
+        });
+        return map;
+      };
+
+      var SCHEME = /^[a-z][a-z0-9+\-.]*:/;
+
+      var openURL = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url, ev, direction, animation) {
+          var router;
+          return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  if (!(url != null && url[0] !== '#' && !SCHEME.test(url))) {
+                    _context.next = 5;
+                    break;
+                  }
+
+                  router = document.querySelector('ion-router');
+
+                  if (!router) {
+                    _context.next = 5;
+                    break;
+                  }
+
+                  if (ev != null) {
+                    ev.preventDefault();
+                  }
+
+                  return _context.abrupt("return", router.push(url, direction, animation));
+
+                case 5:
+                  return _context.abrupt("return", false);
+
+                case 6:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function openURL(_x, _x2, _x3, _x4) {
+          return _ref.apply(this, arguments);
+        };
+      }();
+      /***/
+
+    },
+
+    /***/
+    "QQAA":
+    /*!******************************************************************!*\
+      !*** ./src/app/explore-container/explore-container.component.ts ***!
+      \******************************************************************/
+
+    /*! exports provided: ExploreContainerComponent */
+
+    /***/
+    function QQAA(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "ExploreContainerComponent", function () {
+        return ExploreContainerComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _raw_loader_explore_container_component_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! raw-loader!./explore-container.component.html */
+      "m1kx");
+      /* harmony import */
+
+
+      var _explore_container_component_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./explore-container.component.scss */
+      "huSS");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+
+      var ExploreContainerComponent = /*#__PURE__*/function () {
+        function ExploreContainerComponent() {
+          _classCallCheck(this, ExploreContainerComponent);
+        }
+
+        _createClass(ExploreContainerComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {}
+        }]);
+
+        return ExploreContainerComponent;
+      }();
+
+      ExploreContainerComponent.ctorParameters = function () {
+        return [];
+      };
+
+      ExploreContainerComponent.propDecorators = {
+        name: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_3__["Input"]
+        }]
+      };
+      ExploreContainerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-explore-container',
+        template: _raw_loader_explore_container_component_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_explore_container_component_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+      })], ExploreContainerComponent);
+      /***/
+    },
+
+    /***/
+    "ZaV5":
     /*!**************************************************************************!*\
       !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-4584ab5a.js ***!
       \**************************************************************************/
@@ -143,7 +338,7 @@
     /*! exports provided: a, d */
 
     /***/
-    function node_modulesIonicCoreDistEsmFrameworkDelegate4584ab5aJs(module, __webpack_exports__, __webpack_require__) {
+    function ZaV5(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -161,22 +356,22 @@
       });
 
       var attachComponent = /*#__PURE__*/function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(delegate, container, component, cssClasses, componentProps) {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(delegate, container, component, cssClasses, componentProps) {
           var el;
-          return regeneratorRuntime.wrap(function _callee$(_context) {
+          return regeneratorRuntime.wrap(function _callee2$(_context2) {
             while (1) {
-              switch (_context.prev = _context.next) {
+              switch (_context2.prev = _context2.next) {
                 case 0:
                   if (!delegate) {
-                    _context.next = 2;
+                    _context2.next = 2;
                     break;
                   }
 
-                  return _context.abrupt("return", delegate.attachViewToDom(container, component, componentProps, cssClasses));
+                  return _context2.abrupt("return", delegate.attachViewToDom(container, component, componentProps, cssClasses));
 
                 case 2:
                   if (!(typeof component !== 'string' && !(component instanceof HTMLElement))) {
-                    _context.next = 4;
+                    _context2.next = 4;
                     break;
                   }
 
@@ -198,26 +393,26 @@
                   container.appendChild(el);
 
                   if (!el.componentOnReady) {
-                    _context.next = 11;
+                    _context2.next = 11;
                     break;
                   }
 
-                  _context.next = 11;
+                  _context2.next = 11;
                   return el.componentOnReady();
 
                 case 11:
-                  return _context.abrupt("return", el);
+                  return _context2.abrupt("return", el);
 
                 case 12:
                 case "end":
-                  return _context.stop();
+                  return _context2.stop();
               }
             }
-          }, _callee);
+          }, _callee2);
         }));
 
-        return function attachComponent(_x, _x2, _x3, _x4, _x5) {
-          return _ref.apply(this, arguments);
+        return function attachComponent(_x5, _x6, _x7, _x8, _x9) {
+          return _ref2.apply(this, arguments);
         };
       }();
 
@@ -238,7 +433,178 @@
     },
 
     /***/
-    "./node_modules/@ionic/core/dist/esm/haptic-27b3f981.js":
+    "h3R7":
+    /*!***********************************************************************!*\
+      !*** ./node_modules/@ionic/core/dist/esm/spinner-configs-cd7845af.js ***!
+      \***********************************************************************/
+
+    /*! exports provided: S */
+
+    /***/
+    function h3R7(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "S", function () {
+        return SPINNERS;
+      });
+
+      var spinners = {
+        'bubbles': {
+          dur: 1000,
+          circles: 9,
+          fn: function fn(dur, index, total) {
+            var animationDelay = "".concat(dur * index / total - dur, "ms");
+            var angle = 2 * Math.PI * index / total;
+            return {
+              r: 5,
+              style: {
+                'top': "".concat(9 * Math.sin(angle), "px"),
+                'left': "".concat(9 * Math.cos(angle), "px"),
+                'animation-delay': animationDelay
+              }
+            };
+          }
+        },
+        'circles': {
+          dur: 1000,
+          circles: 8,
+          fn: function fn(dur, index, total) {
+            var step = index / total;
+            var animationDelay = "".concat(dur * step - dur, "ms");
+            var angle = 2 * Math.PI * step;
+            return {
+              r: 5,
+              style: {
+                'top': "".concat(9 * Math.sin(angle), "px"),
+                'left': "".concat(9 * Math.cos(angle), "px"),
+                'animation-delay': animationDelay
+              }
+            };
+          }
+        },
+        'circular': {
+          dur: 1400,
+          elmDuration: true,
+          circles: 1,
+          fn: function fn() {
+            return {
+              r: 20,
+              cx: 48,
+              cy: 48,
+              fill: 'none',
+              viewBox: '24 24 48 48',
+              transform: 'translate(0,0)',
+              style: {}
+            };
+          }
+        },
+        'crescent': {
+          dur: 750,
+          circles: 1,
+          fn: function fn() {
+            return {
+              r: 26,
+              style: {}
+            };
+          }
+        },
+        'dots': {
+          dur: 750,
+          circles: 3,
+          fn: function fn(_, index) {
+            var animationDelay = -(110 * index) + 'ms';
+            return {
+              r: 6,
+              style: {
+                'left': "".concat(9 - 9 * index, "px"),
+                'animation-delay': animationDelay
+              }
+            };
+          }
+        },
+        'lines': {
+          dur: 1000,
+          lines: 12,
+          fn: function fn(dur, index, total) {
+            var transform = "rotate(".concat(30 * index + (index < 6 ? 180 : -180), "deg)");
+            var animationDelay = "".concat(dur * index / total - dur, "ms");
+            return {
+              y1: 17,
+              y2: 29,
+              style: {
+                'transform': transform,
+                'animation-delay': animationDelay
+              }
+            };
+          }
+        },
+        'lines-small': {
+          dur: 1000,
+          lines: 12,
+          fn: function fn(dur, index, total) {
+            var transform = "rotate(".concat(30 * index + (index < 6 ? 180 : -180), "deg)");
+            var animationDelay = "".concat(dur * index / total - dur, "ms");
+            return {
+              y1: 12,
+              y2: 20,
+              style: {
+                'transform': transform,
+                'animation-delay': animationDelay
+              }
+            };
+          }
+        }
+      };
+      var SPINNERS = spinners;
+      /***/
+    },
+
+    /***/
+    "huSS":
+    /*!********************************************************************!*\
+      !*** ./src/app/explore-container/explore-container.component.scss ***!
+      \********************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function huSS(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "#container {\n  text-align: center;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n#container strong {\n  font-size: 20px;\n  line-height: 26px;\n}\n\n#container p {\n  font-size: 16px;\n  line-height: 22px;\n  color: #8c8c8c;\n  margin: 0;\n}\n\n#container a {\n  text-decoration: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2V4cGxvcmUtY29udGFpbmVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0Usa0JBQUE7RUFFQSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxRQUFBO0VBQ0EsUUFBQTtFQUNBLDJCQUFBO0FBQUY7O0FBR0E7RUFDRSxlQUFBO0VBQ0EsaUJBQUE7QUFBRjs7QUFHQTtFQUNFLGVBQUE7RUFDQSxpQkFBQTtFQUVBLGNBQUE7RUFFQSxTQUFBO0FBRkY7O0FBS0E7RUFDRSxxQkFBQTtBQUZGIiwiZmlsZSI6ImV4cGxvcmUtY29udGFpbmVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2NvbnRhaW5lciB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcblxuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGxlZnQ6IDA7XG4gIHJpZ2h0OiAwO1xuICB0b3A6IDUwJTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC01MCUpO1xufVxuXG4jY29udGFpbmVyIHN0cm9uZyB7XG4gIGZvbnQtc2l6ZTogMjBweDtcbiAgbGluZS1oZWlnaHQ6IDI2cHg7XG59XG5cbiNjb250YWluZXIgcCB7XG4gIGZvbnQtc2l6ZTogMTZweDtcbiAgbGluZS1oZWlnaHQ6IDIycHg7XG5cbiAgY29sb3I6ICM4YzhjOGM7XG5cbiAgbWFyZ2luOiAwO1xufVxuXG4jY29udGFpbmVyIGEge1xuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG59Il19 */";
+      /***/
+    },
+
+    /***/
+    "m1kx":
+    /*!**********************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/explore-container/explore-container.component.html ***!
+      \**********************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function m1kx(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div id=\"container\">\n  <strong>{{ name }}</strong>\n  <p>Explore <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://ionicframework.com/docs/components\">UI Components</a></p>\n</div>";
+      /***/
+    },
+
+    /***/
+    "qULd":
     /*!**************************************************************!*\
       !*** ./node_modules/@ionic/core/dist/esm/haptic-27b3f981.js ***!
       \**************************************************************/
@@ -246,7 +612,7 @@
     /*! exports provided: a, b, c, d, h */
 
     /***/
-    function node_modulesIonicCoreDistEsmHaptic27b3f981Js(module, __webpack_exports__, __webpack_require__) {
+    function qULd(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -412,365 +778,7 @@
     },
 
     /***/
-    "./node_modules/@ionic/core/dist/esm/spinner-configs-cd7845af.js":
-    /*!***********************************************************************!*\
-      !*** ./node_modules/@ionic/core/dist/esm/spinner-configs-cd7845af.js ***!
-      \***********************************************************************/
-
-    /*! exports provided: S */
-
-    /***/
-    function node_modulesIonicCoreDistEsmSpinnerConfigsCd7845afJs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "S", function () {
-        return SPINNERS;
-      });
-
-      var spinners = {
-        'bubbles': {
-          dur: 1000,
-          circles: 9,
-          fn: function fn(dur, index, total) {
-            var animationDelay = "".concat(dur * index / total - dur, "ms");
-            var angle = 2 * Math.PI * index / total;
-            return {
-              r: 5,
-              style: {
-                'top': "".concat(9 * Math.sin(angle), "px"),
-                'left': "".concat(9 * Math.cos(angle), "px"),
-                'animation-delay': animationDelay
-              }
-            };
-          }
-        },
-        'circles': {
-          dur: 1000,
-          circles: 8,
-          fn: function fn(dur, index, total) {
-            var step = index / total;
-            var animationDelay = "".concat(dur * step - dur, "ms");
-            var angle = 2 * Math.PI * step;
-            return {
-              r: 5,
-              style: {
-                'top': "".concat(9 * Math.sin(angle), "px"),
-                'left': "".concat(9 * Math.cos(angle), "px"),
-                'animation-delay': animationDelay
-              }
-            };
-          }
-        },
-        'circular': {
-          dur: 1400,
-          elmDuration: true,
-          circles: 1,
-          fn: function fn() {
-            return {
-              r: 20,
-              cx: 48,
-              cy: 48,
-              fill: 'none',
-              viewBox: '24 24 48 48',
-              transform: 'translate(0,0)',
-              style: {}
-            };
-          }
-        },
-        'crescent': {
-          dur: 750,
-          circles: 1,
-          fn: function fn() {
-            return {
-              r: 26,
-              style: {}
-            };
-          }
-        },
-        'dots': {
-          dur: 750,
-          circles: 3,
-          fn: function fn(_, index) {
-            var animationDelay = -(110 * index) + 'ms';
-            return {
-              r: 6,
-              style: {
-                'left': "".concat(9 - 9 * index, "px"),
-                'animation-delay': animationDelay
-              }
-            };
-          }
-        },
-        'lines': {
-          dur: 1000,
-          lines: 12,
-          fn: function fn(dur, index, total) {
-            var transform = "rotate(".concat(30 * index + (index < 6 ? 180 : -180), "deg)");
-            var animationDelay = "".concat(dur * index / total - dur, "ms");
-            return {
-              y1: 17,
-              y2: 29,
-              style: {
-                'transform': transform,
-                'animation-delay': animationDelay
-              }
-            };
-          }
-        },
-        'lines-small': {
-          dur: 1000,
-          lines: 12,
-          fn: function fn(dur, index, total) {
-            var transform = "rotate(".concat(30 * index + (index < 6 ? 180 : -180), "deg)");
-            var animationDelay = "".concat(dur * index / total - dur, "ms");
-            return {
-              y1: 12,
-              y2: 20,
-              style: {
-                'transform': transform,
-                'animation-delay': animationDelay
-              }
-            };
-          }
-        }
-      };
-      var SPINNERS = spinners;
-      /***/
-    },
-
-    /***/
-    "./node_modules/@ionic/core/dist/esm/theme-ff3fc52f.js":
-    /*!*************************************************************!*\
-      !*** ./node_modules/@ionic/core/dist/esm/theme-ff3fc52f.js ***!
-      \*************************************************************/
-
-    /*! exports provided: c, g, h, o */
-
-    /***/
-    function node_modulesIonicCoreDistEsmThemeFf3fc52fJs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "c", function () {
-        return createColorClasses;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "g", function () {
-        return getClassMap;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "h", function () {
-        return hostContext;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "o", function () {
-        return openURL;
-      });
-
-      var hostContext = function hostContext(selector, el) {
-        return el.closest(selector) !== null;
-      };
-      /**
-       * Create the mode and color classes for the component based on the classes passed in
-       */
-
-
-      var createColorClasses = function createColorClasses(color, cssClassMap) {
-        return typeof color === 'string' && color.length > 0 ? Object.assign(_defineProperty({
-          'ion-color': true
-        }, "ion-color-".concat(color), true), cssClassMap) : cssClassMap;
-      };
-
-      var getClassList = function getClassList(classes) {
-        if (classes !== undefined) {
-          var array = Array.isArray(classes) ? classes : classes.split(' ');
-          return array.filter(function (c) {
-            return c != null;
-          }).map(function (c) {
-            return c.trim();
-          }).filter(function (c) {
-            return c !== '';
-          });
-        }
-
-        return [];
-      };
-
-      var getClassMap = function getClassMap(classes) {
-        var map = {};
-        getClassList(classes).forEach(function (c) {
-          return map[c] = true;
-        });
-        return map;
-      };
-
-      var SCHEME = /^[a-z][a-z0-9+\-.]*:/;
-
-      var openURL = /*#__PURE__*/function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url, ev, direction, animation) {
-          var router;
-          return regeneratorRuntime.wrap(function _callee2$(_context2) {
-            while (1) {
-              switch (_context2.prev = _context2.next) {
-                case 0:
-                  if (!(url != null && url[0] !== '#' && !SCHEME.test(url))) {
-                    _context2.next = 5;
-                    break;
-                  }
-
-                  router = document.querySelector('ion-router');
-
-                  if (!router) {
-                    _context2.next = 5;
-                    break;
-                  }
-
-                  if (ev != null) {
-                    ev.preventDefault();
-                  }
-
-                  return _context2.abrupt("return", router.push(url, direction, animation));
-
-                case 5:
-                  return _context2.abrupt("return", false);
-
-                case 6:
-                case "end":
-                  return _context2.stop();
-              }
-            }
-          }, _callee2);
-        }));
-
-        return function openURL(_x6, _x7, _x8, _x9) {
-          return _ref2.apply(this, arguments);
-        };
-      }();
-      /***/
-
-    },
-
-    /***/
-    "./node_modules/raw-loader/dist/cjs.js!./src/app/explore-container/explore-container.component.html":
-    /*!**********************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/explore-container/explore-container.component.html ***!
-      \**********************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function node_modulesRawLoaderDistCjsJsSrcAppExploreContainerExploreContainerComponentHtml(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "<div id=\"container\">\n  <strong>{{ name }}</strong>\n  <p>Explore <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://ionicframework.com/docs/components\">UI Components</a></p>\n</div>";
-      /***/
-    },
-
-    /***/
-    "./src/app/explore-container/explore-container.component.scss":
-    /*!********************************************************************!*\
-      !*** ./src/app/explore-container/explore-container.component.scss ***!
-      \********************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function srcAppExploreContainerExploreContainerComponentScss(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "#container {\n  text-align: center;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n#container strong {\n  font-size: 20px;\n  line-height: 26px;\n}\n\n#container p {\n  font-size: 16px;\n  line-height: 22px;\n  color: #8c8c8c;\n  margin: 0;\n}\n\n#container a {\n  text-decoration: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZXhwbG9yZS1jb250YWluZXIvZXhwbG9yZS1jb250YWluZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxrQkFBQTtFQUVBLGtCQUFBO0VBQ0EsT0FBQTtFQUNBLFFBQUE7RUFDQSxRQUFBO0VBQ0EsMkJBQUE7QUFBRjs7QUFHQTtFQUNFLGVBQUE7RUFDQSxpQkFBQTtBQUFGOztBQUdBO0VBQ0UsZUFBQTtFQUNBLGlCQUFBO0VBRUEsY0FBQTtFQUVBLFNBQUE7QUFGRjs7QUFLQTtFQUNFLHFCQUFBO0FBRkYiLCJmaWxlIjoic3JjL2FwcC9leHBsb3JlLWNvbnRhaW5lci9leHBsb3JlLWNvbnRhaW5lci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNjb250YWluZXIge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG5cbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICByaWdodDogMDtcbiAgdG9wOiA1MCU7XG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlWSgtNTAlKTtcbn1cblxuI2NvbnRhaW5lciBzdHJvbmcge1xuICBmb250LXNpemU6IDIwcHg7XG4gIGxpbmUtaGVpZ2h0OiAyNnB4O1xufVxuXG4jY29udGFpbmVyIHAge1xuICBmb250LXNpemU6IDE2cHg7XG4gIGxpbmUtaGVpZ2h0OiAyMnB4O1xuXG4gIGNvbG9yOiAjOGM4YzhjO1xuXG4gIG1hcmdpbjogMDtcbn1cblxuI2NvbnRhaW5lciBhIHtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xufSJdfQ== */";
-      /***/
-    },
-
-    /***/
-    "./src/app/explore-container/explore-container.component.ts":
-    /*!******************************************************************!*\
-      !*** ./src/app/explore-container/explore-container.component.ts ***!
-      \******************************************************************/
-
-    /*! exports provided: ExploreContainerComponent */
-
-    /***/
-    function srcAppExploreContainerExploreContainerComponentTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "ExploreContainerComponent", function () {
-        return ExploreContainerComponent;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-      var ExploreContainerComponent = /*#__PURE__*/function () {
-        function ExploreContainerComponent() {
-          _classCallCheck(this, ExploreContainerComponent);
-        }
-
-        _createClass(ExploreContainerComponent, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {}
-        }]);
-
-        return ExploreContainerComponent;
-      }();
-
-      ExploreContainerComponent.ctorParameters = function () {
-        return [];
-      };
-
-      ExploreContainerComponent.propDecorators = {
-        name: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }]
-      };
-      ExploreContainerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-explore-container',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! raw-loader!./explore-container.component.html */
-        "./node_modules/raw-loader/dist/cjs.js!./src/app/explore-container/explore-container.component.html"))["default"],
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! ./explore-container.component.scss */
-        "./src/app/explore-container/explore-container.component.scss"))["default"]]
-      })], ExploreContainerComponent);
-      /***/
-    },
-
-    /***/
-    "./src/app/explore-container/explore-container.module.ts":
+    "qtYk":
     /*!***************************************************************!*\
       !*** ./src/app/explore-container/explore-container.module.ts ***!
       \***************************************************************/
@@ -778,7 +786,7 @@
     /*! exports provided: ExploreContainerComponentModule */
 
     /***/
-    function srcAppExploreContainerExploreContainerModuleTs(module, __webpack_exports__, __webpack_require__) {
+    function qtYk(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -793,37 +801,37 @@
 
       var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
+      "mrSG");
       /* harmony import */
 
 
       var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      "fXoL");
       /* harmony import */
 
 
       var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/common */
-      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+      "ofXK");
       /* harmony import */
 
 
       var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/forms */
-      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      "3Pt+");
       /* harmony import */
 
 
       var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @ionic/angular */
-      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      "TEn/");
       /* harmony import */
 
 
       var _explore_container_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./explore-container.component */
-      "./src/app/explore-container/explore-container.component.ts");
+      "QQAA");
 
       var ExploreContainerComponentModule = function ExploreContainerComponentModule() {
         _classCallCheck(this, ExploreContainerComponentModule);
