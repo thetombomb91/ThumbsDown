@@ -17,7 +17,7 @@ import { AdmobFreeService } from './services/google-ads/google-ads.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule ,IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     HTTP,
     StatusBar,

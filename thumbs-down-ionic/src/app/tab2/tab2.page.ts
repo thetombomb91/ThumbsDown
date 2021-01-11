@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { ThumbsDownSubmittedPage } from '../modals/thumbs-down-submitted/thumbs-down-submitted.page';
 import { LicensePlateService } from '../services/license-plate/license-plate.service';
 
 @Component({
@@ -8,9 +10,20 @@ import { LicensePlateService } from '../services/license-plate/license-plate.ser
 })
 export class Tab2Page {
 
-  constructor(private licensePlateService: LicensePlateService) {}
+  constructor(private licensePlateService: LicensePlateService, public modalController: ModalController) {}
 
-  submitClicked() {
-    this.licensePlateService.someFunction();
+  async submitClicked() {
+    // this.licensePlateService.someFunction();
+    const modal = await this.modalController.create({
+      component: ThumbsDownSubmittedPage,
+      cssClass: 'my-custom-class',
+      componentProps: {
+        'firstName': 'Douglas',
+        'lastName': 'Adams',
+        'middleInitial': 'N'
+      }
+    });
+    return await modal.present();
+
   }
 }

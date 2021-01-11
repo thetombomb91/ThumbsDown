@@ -5,6 +5,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'thumbs-down-submitted',
+    loadChildren: () => import('./modals/thumbs-down-submitted/thumbs-down-submitted.module').then( m => m.ThumbsDownSubmittedPageModule)
+  },
+  {
+    path: 'thumbs-down-submitted',
+    loadChildren: () => import('./modals/thumbs-down-submitted/thumbs-down-submitted.module').then( m => m.ThumbsDownSubmittedPageModule)
   }
 ];
 @NgModule({
