@@ -404,6 +404,12 @@
       var _angular_common_http__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/common/http */
       "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+      /* harmony import */
+
+
+      var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! @ionic-native/http/ngx */
+      "./node_modules/@ionic-native/http/__ivy_ngcc__/ngx/index.js");
 
       var AppModule = function AppModule() {
         _classCallCheck(this, AppModule);
@@ -413,7 +419,7 @@
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]],
         entryComponents: [],
         imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HttpClientModule"]],
-        providers: [_ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], {
+        providers: [_ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_11__["HTTP"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"], _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"], {
           provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"],
           useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"]
         }, _services_license_plate_license_plate_service__WEBPACK_IMPORTED_MODULE_9__["LicensePlateService"]],
@@ -456,9 +462,9 @@
       /* harmony import */
 
 
-      var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/common/http */
-      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+      var _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @ionic-native/http/ngx */
+      "./node_modules/@ionic-native/http/__ivy_ngcc__/ngx/index.js");
 
       var LicensePlateService = /*#__PURE__*/function () {
         function LicensePlateService(http) {
@@ -471,8 +477,19 @@
           key: "someFunction",
           value: function someFunction() {
             console.log("I do something useful!");
-            this.http.get('https://dog.ceo/api/breeds/image/random').subscribe(function (response) {
-              console.log(response);
+            var body = {
+              "licensePlate": "SUPER_CAR",
+              "state": "CA"
+            };
+            this.http.setDataSerializer("json");
+            this.http.post('https://cfrtlaqb43.execute-api.us-east-1.amazonaws.com/prod', body, {}).then(function (data) {
+              console.log("GOOD but now really good");
+              console.log(data.status);
+              console.log(data.data); // data received by server
+            })["catch"](function (error) {
+              console.log("NOT GOOD");
+              console.log(error);
+              console.log(error.error); // error message as string
             });
           }
         }]);
@@ -482,7 +499,7 @@
 
       LicensePlateService.ctorParameters = function () {
         return [{
-          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+          type: _ionic_native_http_ngx__WEBPACK_IMPORTED_MODULE_2__["HTTP"]
         }];
       };
 

@@ -1,4 +1,8 @@
 (function () {
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["tab2-tab2-module"], {
@@ -18,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-title>\n      Tab 2\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\">Tab 2</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <app-explore-container name=\"Tab 2 page\"></app-explore-container>\n</ion-content>\n";
+      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n  <ion-toolbar>\n    <ion-title>\n      Submit your THUMBS DOWN\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content [fullscreen]=\"true\">\n  <ion-header collapse=\"condense\">\n    <ion-toolbar>\n      <ion-title size=\"large\"> THUMBS DOWN </ion-title>\n    </ion-toolbar>\n  </ion-header>\n  <ion-card>\n    <ion-card-header>\n      <ion-card-subtitle></ion-card-subtitle>\n      <ion-card-title>Madison, WI</ion-card-title>\n    </ion-card-header>\n    <ion-card-content>\n      Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.\n    </ion-card-content>\n  </ion-card>\n\n  <ion-item>\n    <ion-label position=\"floating\">License Plate #</ion-label>\n    <ion-input></ion-input>\n  </ion-item>\n  <ion-button expand=\"block\" (click)=\"submitClicked()\">Submit</ion-button>\n\n  <app-explore-container name=\"Tab 1 page\">\n\n  </app-explore-container>\n</ion-content>";
       /***/
     },
 
@@ -212,13 +216,34 @@
       var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
 
-      var Tab2Page = function Tab2Page() {
-        _classCallCheck(this, Tab2Page);
-      };
+
+      var _services_license_plate_license_plate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ../services/license-plate/license-plate.service */
+      "./src/app/services/license-plate/license-plate.service.ts");
+
+      var Tab2Page = /*#__PURE__*/function () {
+        function Tab2Page(licensePlateService) {
+          _classCallCheck(this, Tab2Page);
+
+          this.licensePlateService = licensePlateService;
+        }
+
+        _createClass(Tab2Page, [{
+          key: "submitClicked",
+          value: function submitClicked() {
+            this.licensePlateService.someFunction();
+          }
+        }]);
+
+        return Tab2Page;
+      }();
 
       Tab2Page.ctorParameters = function () {
-        return [];
+        return [{
+          type: _services_license_plate_license_plate_service__WEBPACK_IMPORTED_MODULE_2__["LicensePlateService"]
+        }];
       };
 
       Tab2Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
