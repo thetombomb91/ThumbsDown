@@ -12,6 +12,7 @@ export class TabsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.admobFreeService.BannerAd();
+    // this.admobFreeService.BannerAd();
+    
   }
 }
