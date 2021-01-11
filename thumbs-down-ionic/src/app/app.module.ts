@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { LicensePlateService } from './services/license-plate/license-plate.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
+import { AdMobFree } from '@ionic-native/admob-free/ngx';
+import { AdmobFreeService } from './services/google-ads/google-ads.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +23,9 @@ import { HTTP } from '@ionic-native/http/ngx';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    LicensePlateService
+    LicensePlateService,
+    AdMobFree,
+    AdmobFreeService
   ],
   bootstrap: [AppComponent]
 })
