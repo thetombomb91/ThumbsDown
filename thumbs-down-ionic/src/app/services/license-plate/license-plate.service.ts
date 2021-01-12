@@ -10,7 +10,7 @@ export class LicensePlateService {
 
     }
 
-    someFunction() {
+    createNewOrAddToExistingLicensePlate() {
         console.log("I do something useful!");
 
 
