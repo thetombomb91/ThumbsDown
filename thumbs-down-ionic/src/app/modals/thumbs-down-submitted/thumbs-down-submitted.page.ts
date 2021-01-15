@@ -16,7 +16,6 @@ export class ThumbsDownSubmittedPage implements OnInit {
   
   closeModal() {
     this.modalController.dismiss();
-    //more stuff
   }
 
 }

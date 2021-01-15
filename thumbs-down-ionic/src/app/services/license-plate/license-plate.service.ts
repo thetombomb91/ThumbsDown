@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HTTP, HTTPResponse } from '@ionic-native/http/ngx';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { JsonPipe } from '@angular/common';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class LicensePlateService {
 
 
         let body = {
-            "licensePlate": "SUPER_CAR",
+            "licensePlate": "SUPER_CAR23432",
             "state": "CA"
         }
         this.http.setDataSerializer("json");

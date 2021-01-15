@@ -14,11 +14,13 @@ export class Tab2Page {
 
   async submitClicked() {
     this.licensePlateService.createNewOrAddToExistingLicensePlate()
-      .then(data => {
+      .then(async (data) => {
         console.log("GOOD but now really good")
 
         console.log(data.status);
         console.log(data.data); // data received by server
+
+        return await this.openSuccessModal();
 
       })
       .catch(error => {
@@ -27,6 +29,10 @@ export class Tab2Page {
         console.log(error.error); // error message as string
       });;
 
+
+  }
+
+  private async openSuccessModal() {
     const modal = await this.modalController.create({
       component: ThumbsDownSubmittedPage,
       cssClass: 'my-custom-class',
@@ -37,6 +43,5 @@ export class Tab2Page {
       }
     });
     return await modal.present();
-
   }
 }
