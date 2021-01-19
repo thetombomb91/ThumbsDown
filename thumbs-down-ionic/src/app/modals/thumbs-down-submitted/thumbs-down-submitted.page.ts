@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { LicensePlate } from 'src/app/models/licensePlate';
 
 @Component({
   selector: 'app-thumbs-down-submitted',
@@ -8,10 +9,15 @@ import { ModalController } from '@ionic/angular';
 })
 export class ThumbsDownSubmittedPage implements OnInit {
 
+  @Input() licensePlateData: LicensePlate;
+  secondData: LicensePlate;
+
   constructor(public modalController: ModalController) {
 
   }
   ngOnInit() {
+    console.log("I got your data", this.licensePlateData);
+    this.secondData = this.licensePlateData;
   }
   
   closeModal() {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ThumbsDownSubmittedPage } from '../modals/thumbs-down-submitted/thumbs-down-submitted.page';
+import { LicensePlate } from '../models/licensePlate';
 import { LicensePlateService } from '../services/license-plate/license-plate.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class Tab2Page {
         console.log(data.status);
         console.log(data.data); // data received by server
 
-        return await this.openSuccessModal();
+        return await this.openSuccessModal(JSON.parse(data.data) as LicensePlate);
 
       })
       .catch(error => {
@@ -32,14 +33,12 @@ export class Tab2Page {
 
   }
 
-  private async openSuccessModal() {
+  private async openSuccessModal(licensePlateData) {
     const modal = await this.modalController.create({
       component: ThumbsDownSubmittedPage,
       cssClass: 'my-custom-class',
       componentProps: {
-        'firstName': 'Douglas',
-        'lastName': 'Adams',
-        'middleInitial': 'N'
+        'licensePlateData': licensePlateData
       }
     });
     return await modal.present();
