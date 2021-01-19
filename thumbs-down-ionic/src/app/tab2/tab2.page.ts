@@ -11,13 +11,20 @@ import { LicensePlateService } from '../services/license-plate/license-plate.ser
 })
 export class Tab2Page {
 
+  inputLicensePlate: string;
+  inputState: string;
+
   constructor(private licensePlateService: LicensePlateService, public modalController: ModalController) { }
 
   async submitClicked() {
-    this.licensePlateService.createNewOrAddToExistingLicensePlate()
+    // TODO: Find a better way to create this object. Why was using LicensePlate model in ngModel not working?
+    let licensePlate = new LicensePlate;
+    licensePlate.licensePlate = this.inputLicensePlate;
+    licensePlate.state = this.inputState;
+
+    this.licensePlateService.createNewOrAddToExistingLicensePlate(licensePlate)
       .then(async (data) => {
         console.log("GOOD but now really good")
-
         console.log(data.status);
         console.log(data.data); // data received by server
 

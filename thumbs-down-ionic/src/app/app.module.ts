@@ -13,11 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
 import { AdmobFreeService } from './services/google-ads/google-ads.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule ,IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule ,IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
     HTTP,
     StatusBar,

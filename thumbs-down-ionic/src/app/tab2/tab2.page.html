@@ -21,7 +21,7 @@
     <ion-card-content>
       <ion-item>
         <ion-label position="floating">Enter License Plate #</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="inputLicensePlate"></ion-input>
       </ion-item>
       <ion-list>
         <ion-list-header>
@@ -32,7 +32,7 @@
 
         <ion-item>
           <ion-label>State</ion-label>
-          <ion-select placeholder="Select">
+          <ion-select [(ngModel)]="inputState" placeholder="Select">
             <ion-select-option value="AK">Alaska</ion-select-option>
             <ion-select-option value="AL">Alabama</ion-select-option>
             <ion-select-option value="AZ">Arizona</ion-select-option>

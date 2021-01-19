@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LicensePlate } from '../models/licensePlate';
 import { LicensePlateService } from '../services/license-plate/license-plate.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class Tab1Page {
   constructor(private licensePlateService: LicensePlateService) {}
 
   async submitClicked() {
-    this.licensePlateService.createNewOrAddToExistingLicensePlate()
+    this.licensePlateService.createNewOrAddToExistingLicensePlate(new LicensePlate)
       .then(async (data) => {
         console.log("GOOD but now really good")
 
