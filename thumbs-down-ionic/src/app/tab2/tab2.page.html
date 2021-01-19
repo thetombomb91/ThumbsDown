@@ -87,7 +87,7 @@
         </ion-item>
 
       </ion-list>
-      <ion-button expand="block" (click)="submitClicked()">Submiter</ion-button>
+      <ion-button expand="block" (click)="submitClicked()" [disabled]="!inputState || !inputLicensePlate">Submiter</ion-button>
 
     </ion-card-content>
   </ion-card>
