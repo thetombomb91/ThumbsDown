@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HTTP, HTTPResponse } from '@ionic-native/http/ngx';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpDownloadProgressEvent, HttpResponse } from '@angular/common/http';
 import { JsonPipe } from '@angular/common';
 
 @Injectable()
@@ -21,6 +21,10 @@ export class LicensePlateService {
         this.http.setDataSerializer("json");
 
         return this.http.post('https://cfrtlaqb43.execute-api.us-east-1.amazonaws.com/prod', body, {})
+    }
+
+    lookupLicensePlate(): Promise<HTTPResponse> {
+        return this.http.post('URL HERE', {}, {})
     }
 
 };
