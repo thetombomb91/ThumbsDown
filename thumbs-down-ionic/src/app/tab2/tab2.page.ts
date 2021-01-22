@@ -25,7 +25,6 @@ export class Tab2Page {
 
     this.submitInProgress = true;
 
-
     this.licensePlateService.createNewOrAddToExistingLicensePlate(licensePlate)
       .then(async (data) => {
         console.log("GOOD but now really good")

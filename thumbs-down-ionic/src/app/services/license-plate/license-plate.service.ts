@@ -8,7 +8,7 @@ import { LicensePlate } from 'src/app/models/licensePlate';
 export class LicensePlateService {
 
     constructor(private http: HTTP) {
-
+        this.http.setDataSerializer("json");
     }
 
     createNewOrAddToExistingLicensePlate(licensePlate: LicensePlate): Promise<HTTPResponse> {
@@ -30,8 +30,20 @@ export class LicensePlateService {
         return this.http.post('https://cfrtlaqb43.execute-api.us-east-1.amazonaws.com/prod', body, {})
     }
 
-    lookupLicensePlate(): Promise<HTTPResponse> {
-        return this.http.post('URL HERE', {}, {})
+    lookupLicensePlate(licensePlate: LicensePlate): Promise<HTTPResponse> {
+        // let body = {
+        //     "licensePlate": licensePlate.licensePlate,
+        //     "state": licensePlate.state
+        // }
+
+        // console.log("Body in service", body);
+
+        let body = {
+            "licensePlate": "SUPER_CAR23432",
+            "state": "CA"
+        }
+
+        return this.http.post('https://cfrtlaqb43.execute-api.us-east-1.amazonaws.com/prod/lookup-license-plate', body, {})
     }
 
 };
