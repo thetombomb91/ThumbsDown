@@ -13,6 +13,7 @@ export class Tab2Page {
 
   inputLicensePlate: string;
   inputState: string;
+  submitInProgress: boolean;
 
   constructor(private licensePlateService: LicensePlateService, public modalController: ModalController) { }
 
@@ -22,16 +23,22 @@ export class Tab2Page {
     licensePlate.licensePlate = this.inputLicensePlate;
     licensePlate.state = this.inputState;
 
+    this.submitInProgress = true;
+
+
     this.licensePlateService.createNewOrAddToExistingLicensePlate(licensePlate)
       .then(async (data) => {
         console.log("GOOD but now really good")
         console.log(data.status);
         console.log(data.data); // data received by server
+        this.submitInProgress = false;
 
         return await this.openSuccessModal(JSON.parse(data.data) as LicensePlate);
 
       })
       .catch(error => {
+        this.submitInProgress = false;
+
         console.log("NOT GOOD")
         console.log(error);
         console.log(error.error); // error message as string
