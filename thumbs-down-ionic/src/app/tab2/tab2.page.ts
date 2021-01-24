@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 import { ThumbsDownSubmittedPage } from '../modals/thumbs-down-submitted/thumbs-down-submitted.page';
 import { LicensePlate } from '../models/licensePlate';
 import { LicensePlateService } from '../services/license-plate/license-plate.service';
@@ -15,7 +15,9 @@ export class Tab2Page {
   inputState: string;
   submitInProgress: boolean;
 
-  constructor(private licensePlateService: LicensePlateService, public modalController: ModalController) { }
+  constructor(private licensePlateService: LicensePlateService, 
+              public modalController: ModalController,
+              public loadingController: LoadingController) { }
 
   async submitClicked() {
     // TODO: Find a better way to create this object. Why was using LicensePlate model in ngModel not working?
@@ -25,25 +27,33 @@ export class Tab2Page {
 
     this.submitInProgress = true;
 
+    await this.showSubmitInProgressSpinner();
+
     this.licensePlateService.createNewOrAddToExistingLicensePlate(licensePlate)
       .then(async (data) => {
-        console.log("GOOD but now really good")
-        console.log(data.status);
-        console.log(data.data); // data received by server
         this.submitInProgress = false;
-
+        await this.loadingController.dismiss();
         return await this.openSuccessModal(JSON.parse(data.data) as LicensePlate);
 
       })
-      .catch(error => {
+      .catch(async error => {
         this.submitInProgress = false;
+        await this.loadingController.dismiss();
 
         console.log("NOT GOOD")
-        console.log(error);
         console.log(error.error); // error message as string
       });;
 
 
+  }
+
+  private async showSubmitInProgressSpinner() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'Good stuff is happening...hopefully',
+      duration: 10000
+    });
+    await loading.present();
   }
 
   private async openSuccessModal(licensePlateData) {
