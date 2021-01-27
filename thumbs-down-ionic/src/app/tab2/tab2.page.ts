@@ -15,9 +15,9 @@ export class Tab2Page {
   inputState: string;
   submitInProgress: boolean;
 
-  constructor(private licensePlateService: LicensePlateService, 
-              public modalController: ModalController,
-              public loadingController: LoadingController) { }
+  constructor(private licensePlateService: LicensePlateService,
+    public modalController: ModalController,
+    public loadingController: LoadingController) { }
 
   async submitClicked() {
     // TODO: Find a better way to create this object. Why was using LicensePlate model in ngModel not working?
@@ -42,9 +42,7 @@ export class Tab2Page {
 
         console.log("NOT GOOD")
         console.log(error.error); // error message as string
-      });;
-
-
+      });
   }
 
   private async showSubmitInProgressSpinner() {
